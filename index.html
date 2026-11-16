@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshCart | Online Grocery Shopping</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">🥬</span><span>Fresh<span class="green">Cart</span><small>Fresh groceries, delivered simply</small></span></a>
+    <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search fruits, vegetables, milk..."></div>
+    <button class="cart-button" id="cartToggle">🛒 Cart <b id="cartCount">0</b></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">FRESHNESS AT YOUR DOORSTEP</span>
+        <h1>Everyday groceries.<br><em>Made easy.</em></h1>
+        <p>Shop fresh fruits, vegetables and daily essentials from one place.</p>
+        <a class="primary-btn" href="#shop">Shop now <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-label="Fresh grocery basket">🧺<span class="float fruit">🍊</span><span class="float leaf">🥑</span><span class="float tomato">🍅</span></div>
+    </section>
+
+    <section class="benefits">
+      <div><span>🚚</span><p><b>Quick delivery</b><small>At your doorstep</small></p></div>
+      <div><span>🌿</span><p><b>Fresh products</b><small>Quality you can trust</small></p></div>
+      <div><span>🔒</span><p><b>Secure checkout</b><small>Simple demo checkout</small></p></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading"><div><span class="eyebrow">OUR STORE</span><h2>Shop groceries</h2></div><span class="muted" id="resultCount"></span></div>
+      <nav class="categories" id="categoryFilters" aria-label="Product categories"></nav>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="how-section">
+      <span class="eyebrow">HOW IT WORKS</span><h2>Groceries in 3 simple steps</h2>
+      <div class="steps"><article><span>01</span><h3>Choose products</h3><p>Browse categories and add your favourites to the cart.</p></article><article><span>02</span><h3>Place your order</h3><p>Review your cart and enter delivery details.</p></article><article><span>03</span><h3>Get it delivered</h3><p>Your order summary is saved in this demo application.</p></article></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#">🥬 Fresh<span class="green">Cart</span></a><p>Student Project · Online Grocery Shopping System</p><small>Demo application — no real payment or delivery is processed.</small></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="drawer-head"><div><span class="eyebrow">YOUR BASKET</span><h2>Shopping cart</h2></div><button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary"><div><span>Subtotal</span><b id="subtotal">₹0</b></div><div><span>Delivery</span><b id="delivery">₹0</b></div><div class="total"><span>Total</span><b id="total">₹0</b></div><button class="primary-btn checkout-btn" id="checkoutBtn">Proceed to checkout →</button><small>Delivery is free on orders of ₹499 or more.</small></div>
+  </aside>
+
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-card">
+      <button class="icon-btn modal-close" id="closeCheckout" aria-label="Close">✕</button>
+      <span class="eyebrow">ALMOST THERE</span><h2 id="checkoutTitle">Delivery details</h2>
+      <form id="checkoutForm">
+        <label>Full name<input name="name" required minlength="2" placeholder="Enter your name"></label>
+        <label>Mobile number<input name="phone" required inputmode="numeric" pattern="[0-9]{10}" placeholder="10-digit mobile number"></label>
+        <label>Delivery address<textarea name="address" required minlength="8" rows="3" placeholder="House no., street, area, city"></textarea></label>
+        <label>Payment method<select name="payment"><option>Cash on Delivery (Demo)</option><option>UPI (Demo only)</option></select></label>
+        <div class="checkout-total"><span>Order total</span><b id="checkoutTotal">₹0</b></div>
+        <button class="primary-btn" type="submit">Place demo order</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
